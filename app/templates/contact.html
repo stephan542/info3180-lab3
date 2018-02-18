@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="static/css/app.css" type="text/css" />
+    </head>
+    <body>
+       <form action="/contact" method="POST">
+          <table>
+              <tr class="main_td">
+                  <td><h2>Contact Form</h2><hr></td>
+                  
+              </tr>
+              <tr>
+                  <td>
+                      {% for message in form.name.errors %}
+                    <div><em>{{ message }}</em></div>
+                      {% endfor %}
+      
+                      {% for message in form.email.errors %}
+                    <div><em>{{ message }}</em></div>
+                      {% endfor %}
+                      
+                      {% for message in form.subject.errors %}
+                    <div><em>{{ message }}</em></div>
+                      {% endfor %}
+                      
+                       {% for message in form.message.errors %}
+                    <div><em>{{ message }}</em></div>
+                      {% endfor %}
+                    </td>
+              </tr>
+              <tr></tr>
+              <tr>
+                  <td>Fill in this form to contact the site owners.</td>
+              </tr>
+              <tr>
+                  <td>{{form.name.label}} <em>(Required)</em></td>
+              </tr>
+              <tr>
+                  <td>Please enter your full name</td>
+              </tr>
+              <tr>
+                  <td>{{form.name}}</td>
+              </tr>
+              <tr>
+                  <td>{{form.email.label}} <em>(Required)</em></td>
+              </tr>
+              <tr>
+                  <td>Please enter your email-address</td>
+              </tr>
+              <tr>
+                  <td>{{form.email}}</td>
+              </tr>
+              <tr>
+                  <td>{{form.subject.label}} <em>(Required)</em></td>
+              </tr>
+              <tr>
+                  <td>Please enter the subject of your message.</td>
+              </tr>
+              <tr>
+                  <td>{{form.subject}}</td>
+              </tr>
+              <tr>
+                  <td>{{form.message.label}} <em>(Required)</em></td>
+              </tr>
+              <tr>
+                  <td>Please enter the message you would like to send.</td>
+              </tr>
+              <tr>
+                  <td>{{form.message}}</td>
+              </tr>
+               <tr>
+                  <td><input class="submit_btn" type="submit" value="Send" ></td>
+              </tr>
+          </table> 
+          {{form.csrf_token}}
+       </form>
+    </body>
+</html>
